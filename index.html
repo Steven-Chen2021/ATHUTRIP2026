@@ -171,6 +171,16 @@ main { padding: 31px 12px 44px; }
 .trip-card.dad .trip-status { color: #ffe9ad; border-color: rgba(255,233,173,.56); }
 .trip-card.dad .trip-date { color: #0c6b73; }
 
+.trip-card.fukuoka::after { background: linear-gradient(90deg, #1b3a4a 0 34%, #c9a227 34% 66%, #b7410e 66%); }
+.trip-card.fukuoka .trip-visual {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(183,65,14,.55) 0 7%, transparent 7.5%),
+    linear-gradient(150deg, #10222c, #1b3a4a 55%, #2f6470);
+}
+.trip-card.fukuoka .trip-visual::after { content: "HAKATA   —   TENJIN"; }
+.trip-card.fukuoka .trip-status { color: #ffd48a; border-color: rgba(255,212,138,.56); }
+.trip-card.fukuoka .trip-date { color: #b7410e; }
+
 .trip-card:active { transform: translateY(1px); }
 .trip-card:focus-visible { outline: 3px solid rgba(198,147,59,.65); outline-offset: 3px; }
 
@@ -247,9 +257,9 @@ footer { padding: 0 16px 30px; color: #847d6d; font: 10px/1.5 Georgia, serif; te
 </header>
 
 <section class="summary" aria-label="旅行摘要">
-  <div class="stat"><strong>3</strong><span>Journeys</span></div>
-  <div class="stat"><strong>4</strong><span>Places</span></div>
-  <div class="stat"><strong>24</strong><span>Travelers</span></div>
+  <div class="stat"><strong>4</strong><span>Journeys</span></div>
+  <div class="stat"><strong>5</strong><span>Places</span></div>
+  <div class="stat"><strong>27</strong><span>Travelers</span></div>
 </section>
 
 <main>
@@ -267,6 +277,21 @@ footer { padding: 0 16px 30px; color: #847d6d; font: 10px/1.5 Georgia, serif; te
   <div class="trip-grid" id="archive-trips" role="tabpanel" hidden></div>
 
   <div id="trip-source" hidden>
+    <a class="trip-card fukuoka" href="trips/2026-09-01-fukuoka-food-trip/" data-start="2026-09-01" data-end="2026-09-04" aria-label="開啟 2026 福岡美食旅行計劃">
+      <div class="trip-visual">
+        <span class="trip-status">Upcoming Food Trip</span>
+        <h3>Fukuoka Gourmet<span>福岡美食旅行 · 2026</span></h3>
+        <div class="route"><span>Taipei</span><i></i><span>Hakata</span><i></i><span>Tenjin</span></div>
+      </div>
+      <div class="trip-info">
+        <div>
+          <div class="trip-date">2026.09.01 — 09.04</div>
+          <p class="trip-meta">日本 · 福岡<br>3 位旅人 · 屋台、拉麵與もつ鍋美食路線</p>
+        </div>
+        <span class="open-label">開啟計劃</span>
+      </div>
+    </a>
+
     <a class="trip-card dad" href="trips/2026-09-09-dad-vietnam/" data-start="2026-09-09" data-end="2026-09-13" aria-label="開啟 2026 DAD 越南中部旅遊計劃">
       <div class="trip-visual">
         <span class="trip-status">Upcoming Vietnam Trip</span>

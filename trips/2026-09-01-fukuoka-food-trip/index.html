@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1b3a4a">
+<meta name="description" content="2026 福岡美食旅行，9月1日至9月4日，博多屋台、拉麵、もつ鍋與水炊き的在地美食路線。">
+<title>2026 · 福岡美食旅行</title>
+<style>
+:root { --indigo:#1b3a4a; --indigo2:#2f6470; --vermillion:#b7410e; --vermillion2:#8f3009; --gold:#c9a227; --cream:#f7f0e2; --paper:#fffcf6; --ink:#2b2622; --muted:#7a7267; --line:#ddd0b3; --shadow:0 10px 28px rgba(43,38,34,.13); }
+* { box-sizing:border-box; margin:0; padding:0; }
+html { background:var(--cream); scroll-behavior:smooth; }
+body { min-height:100vh; color:var(--ink); font-family:"Noto Sans JP","Hiragino Sans","Noto Sans TC","PingFang TC",sans-serif; background-color:var(--cream); background-image:linear-gradient(rgba(27,58,74,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(27,58,74,.035) 1px,transparent 1px); background-size:24px 24px; font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+a,button { -webkit-tap-highlight-color:transparent; }
+button { font:inherit; }
+
+header { position:relative; overflow:hidden; padding:13px 14px 11px; color:#fff; background:linear-gradient(145deg,#102834,var(--indigo) 58%,var(--indigo2)); border-bottom:3px solid var(--vermillion); }
+header::before { content:""; position:absolute; inset:0; opacity:.14; background-image:repeating-linear-gradient(115deg, rgba(255,255,255,.5) 0 2px, transparent 2px 26px); }
+header::after { content:""; position:absolute; right:14px; top:14px; width:46px; height:46px; border-radius:50%; background:var(--vermillion); box-shadow:0 0 0 4px rgba(255,255,255,.08); opacity:.9; }
+.head-inner { position:relative; z-index:1; max-width:720px; margin:auto; }
+.back { display:inline-flex; align-items:center; gap:5px; color:#dcebe8; font-size:10px; font-weight:850; text-decoration:none; letter-spacing:.05em; }
+h1 { margin-top:5px; font:700 22px/1.08 "Shippori Mincho","Noto Serif JP","Hiragino Mincho ProN","Noto Serif TC",Georgia,serif; }
+h1 span { margin-left:4px; color:#ffd48a; font:800 .5em/1 "Noto Sans JP","Avenir Next",sans-serif; letter-spacing:.08em; }
+.chips { display:flex; gap:6px; margin:8px -14px -2px; padding:0 14px 2px; overflow-x:auto; white-space:nowrap; scrollbar-width:none; }
+.chips::-webkit-scrollbar,.tabs::-webkit-scrollbar { display:none; }
+.chip { flex:none; padding:3px 7px; border:1px solid rgba(201,162,39,.5); border-radius:3px; background:rgba(9,34,44,.34); color:#fff6e5; font-size:10px; font-weight:800; }
+
+.tabs { position:sticky; top:0; z-index:20; display:flex; gap:8px; overflow-x:auto; padding:10px 12px; background:rgba(247,240,226,.96); border-bottom:1px solid rgba(183,65,14,.4); box-shadow:0 5px 16px rgba(43,38,34,.1); backdrop-filter:blur(12px); }
+.tab { flex:none; min-height:44px; padding:9px 13px; border:1px solid #d8c9a4; border-radius:5px; color:#6b6154; background:var(--paper); font-size:13px; font-weight:800; cursor:pointer; }
+.tab.active { color:#fff; border-color:var(--indigo); background:var(--indigo); box-shadow:inset 0 -3px 0 var(--vermillion); }
+.tab:focus-visible,a:focus-visible { outline:3px solid rgba(201,162,39,.6); outline-offset:2px; }
+
+.section { display:none; max-width:620px; margin:auto; padding:15px 10px 34px; }
+.section.active { display:block; animation:fade .24s ease both; }
+@keyframes fade { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:none; } }
+.card,.day { position:relative; margin-bottom:13px; overflow:hidden; border:1px solid var(--line); border-radius:7px; background:var(--paper); box-shadow:var(--shadow); }
+.card { padding:16px 14px; }
+.card::before { content:""; position:absolute; inset:0 auto 0 0; width:4px; background:linear-gradient(var(--vermillion),var(--gold)); }
+.title { display:flex; align-items:center; gap:8px; margin-bottom:11px; padding-right:40px; color:var(--indigo); font:700 17px/1.35 "Shippori Mincho","Noto Serif JP","Noto Serif TC",Georgia,serif; }
+
+.readable { cursor:zoom-in; outline:none; }
+.readable::after { content:"A+"; position:absolute; top:10px; right:10px; min-width:32px; padding:4px 6px; border:1px solid #c7b48c; border-radius:4px; color:var(--indigo); background:#f2ead6; font-size:10px; line-height:1.2; font-weight:900; text-align:center; }
+.readable.focus { cursor:zoom-out; background:#fffefa; box-shadow:0 0 0 2px var(--indigo),0 16px 34px rgba(27,58,74,.18); }
+.readable.focus::after { content:"A−"; color:#fff; border-color:var(--vermillion); background:var(--vermillion); }
+.readable.focus .row,.readable.focus .item,.readable.focus .note,.readable.focus .detail { font-size:19px; line-height:1.75; }
+.readable.focus .title,.readable.focus .item-name { font-size:21px; }
+
+.row { display:grid; grid-template-columns:92px minmax(0,1fr); gap:10px; padding:9px 0; border-bottom:1px solid #ece2ca; font-size:14px; }
+.row:last-child { border-bottom:0; }
+.label { color:var(--muted); font-size:11px; font-weight:850; letter-spacing:.04em; }
+.value { text-align:right; font-weight:700; overflow-wrap:anywhere; }
+.value a { color:var(--indigo); }
+.callout { margin:9px 0; padding:10px 12px; border-left:4px solid var(--vermillion); border-radius:0 5px 5px 0; background:#fdece2; color:#6b3a24; font-size:13px; }
+
+.day-head { width:100%; min-height:68px; display:grid; grid-template-columns:auto 1fr auto; gap:10px; align-items:center; padding:12px 13px; border:0; color:#fff; background:linear-gradient(135deg,var(--indigo),var(--indigo2)); text-align:left; cursor:pointer; }
+.day-num { display:grid; place-items:center; width:40px; height:40px; border:1px solid rgba(255,255,255,.4); border-radius:50%; font:700 17px/1 "Shippori Mincho","Noto Serif JP",Georgia,serif; }
+.day-head strong { display:block; font-size:15px; }
+.day-head small { display:block; margin-top:3px; color:#dcece8; font-size:10px; }
+.arrow { transition:transform .2s; }
+.day-head.open .arrow { transform:rotate(180deg); }
+.day-body { display:none; position:relative; padding:10px 14px 14px; }
+.day-body.open { display:block; }
+.item { position:relative; display:grid; grid-template-columns:68px minmax(0,1fr); gap:10px; padding:12px 0 12px 10px; border-bottom:1px dashed #ddceac; font-size:14px; }
+.item:last-of-type { border-bottom:0; }
+.item::before { content:""; position:absolute; left:0; top:19px; width:5px; height:5px; border-radius:50%; background:var(--vermillion); }
+.time { color:var(--vermillion); font-size:11px; font-weight:900; }
+.item-name { color:#2b3f43; font-size:15px; font-weight:850; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.tag-suggest { display:inline-flex; padding:1px 6px; border:1px solid #c9a227; border-radius:3px; color:#8a6c11; background:#fbf1cf; font-size:9px; font-weight:900; letter-spacing:.05em; }
+.detail { margin-top:3px; color:#5e5850; font-size:12px; line-height:1.65; }
+.links { display:flex; flex-wrap:wrap; gap:6px; margin-top:7px; }
+.btn { display:inline-flex; align-items:center; min-height:36px; padding:7px 9px; border:1px solid #b8a781; border-radius:4px; color:#8a3a12; background:#fbf4e6; font-size:11px; font-weight:850; text-decoration:none; }
+.optional { margin-top:10px; padding:10px 11px; border:1px dashed #c9aa64; border-radius:5px; background:#fff8e6; color:#67593e; font-size:12px; }
+
+.foodgrid { display:grid; gap:8px; }
+.food-cat { margin-bottom:4px; color:var(--vermillion); font:800 12px/1.4 "Noto Sans JP",sans-serif; letter-spacing:.05em; }
+.check { display:flex; gap:10px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #ece2ca; font-size:14px; }
+.check:last-child { border-bottom:0; }
+.box { width:21px; height:21px; flex:none; margin-top:1px; border:2px solid #a89a7a; border-radius:3px; background:#fff; }
+.note { color:#6b6154; font-size:11px; }
+.source-link { display:block; margin-top:12px; color:var(--indigo); font-size:12px; font-weight:800; }
+
+@media (min-width:700px) { header { padding:17px 24px 14px; text-align:center; } h1 { font-size:27px; } .back { position:absolute; left:0; top:8px; } .chips { justify-content:center; margin:9px 0 -2px; } .tabs { justify-content:center; } }
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="head-inner">
+    <a class="back" href="../../">← Steven Journey Album</a>
+    <h1>福岡美食旅 <span>· Fukuoka Gourmet 2026</span></h1>
+    <div class="chips" aria-label="行程摘要">
+      <span class="chip">9/1–9/4</span><span class="chip">3 人同行</span><span class="chip">美食路線單獨探索</span><span class="chip">屋台 · 拉麵 · もつ鍋</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="福岡旅行章節">
+  <button class="tab active" role="tab" aria-selected="true" data-target="overview">📌 行程總覽</button>
+  <button class="tab" role="tab" aria-selected="false" data-target="days">🗓 每日行程</button>
+  <button class="tab" role="tab" aria-selected="false" data-target="food">🍜 美食清單</button>
+  <button class="tab" role="tab" aria-selected="false" data-target="stay">🏠 住宿資訊</button>
+  <button class="tab" role="tab" aria-selected="false" data-target="notes">✅ 出發提醒</button>
+</nav>
+
+<main>
+<section class="section active" id="overview">
+  <article class="card readable" tabindex="0" aria-pressed="false">
+    <h2 class="title">🎌 旅行基本資料</h2>
+    <div class="row"><span class="label">日期</span><span class="value">2026/09/01（二）– 09/04（五）· 3 晚</span></div>
+    <div class="row"><span class="label">成員</span><span class="value">3 位旅人同行</span></div>
+    <div class="row"><span class="label">核心節奏</span><span class="value">以在地美食為主軸，美食路線由本人單獨探索</span></div>
+    <div class="row"><span class="label">住宿</span><span class="value">Apartment Hotel TENJIN TUMUGU（天神）</span></div>
+    <div class="callout">整體行程以「在地人氣美食」為安排原則，屋台、拉麵、もつ鍋、水炊き等店家皆標示為<b>建議</b>，尚未訂位，出發前請依實際營業狀況與人數再次確認。</div>
+  </article>
+
+  <article class="card readable" tabindex="0" aria-pressed="false">
+    <h2 class="title">🍥 每日美食焦點</h2>
+    <div class="row"><span class="label">9/1（二）</span><span class="value">中洲屋台 · 抵達夜屋台體驗</span></div>
+    <div class="row"><span class="label">9/2（三）</span><span class="value">柳橋連合市場 × 豚骨拉麵 × もつ鍋</span></div>
+    <div class="row"><span class="label">9/3（四）</span><span class="value">太宰府梅ヶ枝餅 × 博多水炊き</span></div>
+    <div class="row"><span class="label">9/4（五）</span><span class="value">資さんうどん × 明太子伴手禮</span></div>
+  </article>
+</section>
+
+<section class="section" id="days">
+  <article class="day">
+    <button class="day-head open" aria-expanded="true"><span class="day-num">1</span><span><strong>9/1 星期二 · 抵達．入住天神</strong><small>入住 · 中洲屋台初體驗</small></span><span class="arrow">▼</span></button>
+    <div class="day-body open readable" tabindex="0" aria-pressed="false">
+      <div class="item"><span class="time">午後</span><div><div class="item-name">福岡空港 → 天神</div><p class="detail">福岡空港距市區極近，地下鐵約 11 分鐘可達天神站，是九州最方便抵達市區的機場之一。</p></div></div>
+      <div class="item"><span class="time">傍晚</span><div><div class="item-name">Check-in · Apartment Hotel TENJIN TUMUGU</div><p class="detail">位於渡邊通三丁目，步行即可到天神核心商圈與那珂川畔，前往中洲屋台約 10–15 分鐘路程。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Apartment+Hotel+TENJIN+TUMUGU+福岡" target="_blank">📍 地圖</a></div></div></div>
+      <div class="item"><span class="time">19:00 起</span><div><div class="item-name">中洲屋台街 <span class="tag-suggest">建議</span></div><p class="detail">沿那珂川畔散步尋找喜歡的攤位，是福岡最具代表性的夜間美食體驗。招牌品項：豚骨拉麵、餃子、天ぷら、おでん。建議避開颱風／大雨天，攤位視天候會臨時休息。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=中洲屋台街" target="_blank">📍 地圖</a></div></div></div>
+    </div>
+  </article>
+
+  <article class="day">
+    <button class="day-head" aria-expanded="false"><span class="day-num">2</span><span><strong>9/2 星期三 · 市場、拉麵與もつ鍋</strong><small>柳橋連合市場 · 一蘭 · もつ鍋</small></span><span class="arrow">▼</span></button>
+    <div class="day-body readable" tabindex="0" aria-pressed="false">
+      <div class="item"><span class="time">09:30–11:00</span><div><div class="item-name">柳橋連合市場 <span class="tag-suggest">建議</span></div><p class="detail">有「福岡の台所」之稱的老市場，適合早上散策，品嚐現做小吃與新鮮海產、玉子燒等在地食材。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=柳橋連合市場" target="_blank">📍 地圖</a></div></div></div>
+      <div class="item"><span class="time">12:00</span><div><div class="item-name">一蘭 中洲総本店 · 午餐 <span class="tag-suggest">建議</span></div><p class="detail">豚骨拉麵始祖級名店的總本店，湯頭濃郁、可依個人喜好客製辣度與麵硬度。用餐時段常有排隊，建議提早前往。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=一蘭+中洲総本店" target="_blank">📍 地圖</a></div></div></div>
+      <div class="item"><span class="time">14:00–16:00</span><div><div class="item-name">大濠公園散步</div><p class="detail">飯後散步消化，環湖步道約 2 公里，湖畔咖啡廳可稍作休息，天氣炎熱建議挑傍晚較涼時段。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=大濠公園" target="_blank">📍 地圖</a></div></div></div>
+      <div class="item"><span class="time">18:30</span><div><div class="item-name">博多もつ鍋 おおやま 天神店 · 晚餐 <span class="tag-suggest">建議</span></div><p class="detail">福岡代表性鍋物，以牛腸與高麗菜、韭菜熬煮的甘甜湯頭聞名，多以醬油或味噌兩種口味為主。人氣店家建議出發前致電或線上確認訂位。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=博多もつ鍋おおやま天神店" target="_blank">📍 地圖</a></div></div></div>
+    </div>
+  </article>
+
+  <article class="day">
+    <button class="day-head" aria-expanded="false"><span class="day-num">3</span><span><strong>9/3 星期四 · 太宰府一日與水炊き</strong><small>太宰府天満宮 · 梅ヶ枝餅 · 水炊き</small></span><span class="arrow">▼</span></button>
+    <div class="day-body readable" tabindex="0" aria-pressed="false">
+      <div class="item"><span class="time">09:30</span><div><div class="item-name">西鐵電車 → 太宰府</div><p class="detail">從天神搭乘西鐵天神大牟田線於「西鐵二日市」轉太宰府線，車程約 30 分鐘。</p></div></div>
+      <div class="item"><span class="time">10:30–12:00</span><div><div class="item-name">太宰府天満宮 參拜</div><p class="detail">學問之神菅原道真的信仰中心，參道兩側店家林立，適合悠閒散步。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=太宰府天満宮" target="_blank">📍 地圖</a></div></div></div>
+      <div class="item"><span class="time">12:00</span><div><div class="item-name">梅ヶ枝餅 · 参道小食 <span class="tag-suggest">建議</span></div><p class="detail">太宰府必吃的紅豆麻糬燒餅，参道上多家老店現烤現賣（如かさの家、天山），可當作簡便午餐搭配其他小食。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=かさの家+太宰府" target="_blank">📍 地圖</a></div></div></div>
+      <div class="item"><span class="time">14:30</span><div><div class="item-name">返回天神 · 明太子伴手禮</div><p class="detail">回程可順道前往ふくや明太子本店選購伴手禮，為福岡明太子的創始老店。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=ふくや+明太子+本店" target="_blank">📍 地圖</a></div></div></div>
+      <div class="item"><span class="time">19:00</span><div><div class="item-name">博多水炊き 新三浦 · 晚餐 <span class="tag-suggest">建議</span></div><p class="detail">以雞白湯為基底的福岡代表鍋物之一，湯頭清甜、雞肉軟嫩，是與もつ鍋齊名的博多鍋物雙雄。建議事先確認是否需要訂位。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=博多水炊き新三浦" target="_blank">📍 地圖</a></div></div></div>
+    </div>
+  </article>
+
+  <article class="day">
+    <button class="day-head" aria-expanded="false"><span class="day-num">4</span><span><strong>9/4 星期五 · 最後一餐與賦歸</strong><small>資さんうどん · 伴手禮 · 機場</small></span><span class="arrow">▼</span></button>
+    <div class="day-body readable" tabindex="0" aria-pressed="false">
+      <div class="item"><span class="time">08:30</span><div><div class="item-name">資さんうどん · 早餐 <span class="tag-suggest">建議</span></div><p class="detail">九州在地連鎖烏龍麵店，麵條偏軟、湯頭溫潤，牛蒡天婦羅烏龍麵是招牌品項，早上營業、適合退房前用餐。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=資さんうどん+天神" target="_blank">📍 地圖</a></div></div></div>
+      <div class="item"><span class="time">10:00</span><div><div class="item-name">Check-out</div><p class="detail">退房後可將行李寄放櫃檯或投幣式置物櫃，輕裝進行最後採買。</p></div></div>
+      <div class="item"><span class="time">10:30–12:00</span><div><div class="item-name">博多駅 伴手禮採買</div><p class="detail">車站內デイトス、マイング商店街集結福岡各式土產與明太子專賣店，適合一次補齊伴手禮。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=博多駅+デイトス" target="_blank">📍 地圖</a></div></div></div>
+      <div class="item"><span class="time">12:00</span><div><div class="item-name">博多駅 いっぷく通り · 最後一碗拉麵 <span class="tag-suggest">建議</span></div><p class="detail">博多駅內的拉麵橫丁，集結多家人氣拉麵店，適合作為離開福岡前的最後一餐。</p><div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=博多いっぷく通り" target="_blank">📍 地圖</a></div></div></div>
+      <div class="item"><span class="time">午後</span><div><div class="item-name">前往福岡空港 · 賦歸</div><p class="detail">地下鐵約 11 分鐘直達機場，時間充裕，不需太早出發。</p></div></div>
+      <div class="optional"><b>備選：</b>若時間充裕，可將 9/4 早餐與伴手禮採買順序對調，或加入 唐人町商店街 逛逛在地生活感的小吃店。</div>
+    </div>
+  </article>
+</section>
+
+<section class="section" id="food">
+  <article class="card readable" tabindex="0" aria-pressed="false">
+    <h2 class="title">🍜 博多美食清單</h2>
+    <div class="foodgrid">
+      <div class="food-cat">拉麵 らーめん</div>
+      <div class="check"><span class="box"></span><div>一蘭 中洲総本店</div></div>
+      <div class="check"><span class="box"></span><div>博多らーめん Shin-Shin</div></div>
+      <div class="check"><span class="box"></span><div>博多駅 いっぷく通り 拉麵橫丁</div></div>
+      <div class="food-cat">鍋物</div>
+      <div class="check"><span class="box"></span><div>もつ鍋（牛腸鍋）· おおやま／笑楽</div></div>
+      <div class="check"><span class="box"></span><div>水炊き（雞白湯鍋）· 新三浦</div></div>
+      <div class="food-cat">屋台 · 街邊小食</div>
+      <div class="check"><span class="box"></span><div>中洲屋台街</div></div>
+      <div class="check"><span class="box"></span><div>柳橋連合市場 現做小吃</div></div>
+      <div class="food-cat">在地烏龍麵 · 甜點</div>
+      <div class="check"><span class="box"></span><div>資さんうどん · 牛蒡天婦羅烏龍麵</div></div>
+      <div class="check"><span class="box"></span><div>梅ヶ枝餅（太宰府参道）</div></div>
+      <div class="food-cat">伴手禮</div>
+      <div class="check"><span class="box"></span><div>ふくや 明太子 本店</div></div>
+      <div class="check"><span class="box"></span><div>博多駅 デイトス／マイング</div></div>
+    </div>
+    <div class="callout">以上為依在地人氣建議的清單，非已訂位。もつ鍋、水炊き等熱門店家用餐尖峰時段建議提前致電或線上訂位。</div>
+  </article>
+</section>
+
+<section class="section" id="stay">
+  <article class="card readable" tabindex="0" aria-pressed="false">
+    <h2 class="title">🏠 Apartment Hotel TENJIN TUMUGU</h2>
+    <div class="row"><span class="label">地址</span><span class="value">〒810-0004 福岡県福岡市中央区渡辺通3丁目7-10</span></div>
+    <div class="row"><span class="label">位置</span><span class="value">天神核心商圈步行範圍，鄰近渡辺通</span></div>
+    <div class="row"><span class="label">入住／退房</span><span class="value">請以訂房確認信為準</span></div>
+    <div class="callout">此區為天神南側，步行即可達天神地下街、警固公園；至中洲屋台街約 10–15 分鐘路程，至博多駅可搭地下鐵約 5 分鐘。</div>
+    <div class="links"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Apartment+Hotel+TENJIN+TUMUGU+福岡" target="_blank">📍 飯店位置</a></div>
+  </article>
+</section>
+
+<section class="section" id="notes">
+  <article class="card readable" tabindex="0" aria-pressed="false">
+    <h2 class="title">✅ 出發前核對</h2>
+    <div class="check"><span class="box"></span><div><b>確認護照效期</b><p class="note">建議六個月以上效期。</p></div></div>
+    <div class="check"><span class="box"></span><div><b>準備 IC 交通卡</b><p class="note">SUGOCA／Suica 皆可通用於福岡地下鐵與西鐵。</p></div></div>
+    <div class="check"><span class="box"></span><div><b>備妥現金</b><p class="note">中洲屋台、部分老字號食堂僅收現金，建議隨身準備日圓小額紙鈔與零錢。</p></div></div>
+    <div class="check"><span class="box"></span><div><b>確認もつ鍋／水炊き訂位</b><p class="note">人氣店家用餐尖峰時段建議出發前 3–5 天致電或線上確認。</p></div></div>
+    <div class="check"><span class="box"></span><div><b>確認飯店入住／退房時間</b><p class="note">依 Apartment Hotel TENJIN TUMUGU 訂房確認信為準。</p></div></div>
+    <div class="check"><span class="box"></span><div><b>留意九月天候</b><p class="note">九月福岡仍有午後雷陣雨與颱風季尾聲的可能，建議準備輕便雨具並留意航班資訊。</p></div></div>
+    <div class="check"><span class="box"></span><div><b>行動網路 / Wi-Fi</b><p class="note">建議事先申請 eSIM 或機場租借 Wi-Fi 分享器，方便查詢地圖與店家營業狀況。</p></div></div>
+  </article>
+</section>
+</main>
+
+<script>
+function showTab(tab) {
+  document.querySelectorAll('.tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+  document.getElementById(tab.dataset.target).classList.add('active');
+  tab.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click',()=>showTab(tab)));
+document.querySelectorAll('.day-head').forEach(head => head.addEventListener('click',()=>{
+  const open=head.classList.toggle('open'); head.setAttribute('aria-expanded',String(open)); head.nextElementSibling.classList.toggle('open',open);
+}));
+function toggleRead(block) {
+  const on=!block.classList.contains('focus');
+  document.querySelectorAll('.readable.focus').forEach(b=>{ if(b!==block){b.classList.remove('focus');b.setAttribute('aria-pressed','false');} });
+  block.classList.toggle('focus',on); block.setAttribute('aria-pressed',String(on));
+}
+document.querySelectorAll('.readable').forEach(block=>{
+  block.addEventListener('click',e=>{if(!e.target.closest('a,button'))toggleRead(block);});
+  block.addEventListener('keydown',e=>{if(e.target===block&&(e.key==='Enter'||e.key===' ')){e.preventDefault();toggleRead(block);}});
+});
+</script>
+</body>
+</html>
