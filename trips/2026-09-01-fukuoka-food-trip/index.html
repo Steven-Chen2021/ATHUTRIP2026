@@ -76,8 +76,10 @@ h1 span { margin-left:4px; color:#ffd48a; font:800 .5em/1 "Noto Sans JP","Avenir
 .food-cat { margin-bottom:4px; color:var(--vermillion); font:800 12px/1.4 "Noto Sans JP",sans-serif; letter-spacing:.05em; }
 .check { display:flex; gap:10px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #ece2ca; font-size:14px; }
 .check:last-child { border-bottom:0; }
+.check > div { min-width:0; flex:1; }
 .box { width:21px; height:21px; flex:none; margin-top:1px; border:2px solid #a89a7a; border-radius:3px; background:#fff; }
 .note { color:#6b6154; font-size:11px; }
+.food-map { display:inline-flex; margin-top:5px; padding:3px 7px; border:1px solid #c9b98f; border-radius:3px; color:#8a3a12; background:#fbf4e6; font-size:10px; font-weight:850; text-decoration:none; }
 .source-link { display:block; margin-top:12px; color:var(--indigo); font-size:12px; font-weight:800; }
 
 @media (min-width:700px) { header { padding:17px 24px 14px; text-align:center; } h1 { font-size:27px; } .back { position:absolute; left:0; top:8px; } .chips { justify-content:center; margin:9px 0 -2px; } .tabs { justify-content:center; } }
@@ -186,26 +188,28 @@ h1 span { margin-left:4px; color:#ffd48a; font:800 .5em/1 "Noto Sans JP","Avenir
     <h2 class="title">🍜 博多美食清單</h2>
     <div class="foodgrid">
       <div class="food-cat">拉麵 らーめん</div>
-      <div class="check"><span class="box"></span><div>一蘭 中洲総本店</div></div>
-      <div class="check"><span class="box"></span><div>博多らーめん Shin-Shin</div></div>
-      <div class="check"><span class="box"></span><div>博多駅 いっぷく通り 拉麵橫丁</div></div>
+      <div class="check"><span class="box"></span><div>一蘭 中洲総本店<br><a class="food-map" href="https://www.google.com/maps/search/?api=1&query=一蘭+中洲総本店" target="_blank">📍 Google Maps</a></div></div>
+      <div class="check"><span class="box"></span><div>博多らーめん Shin-Shin<br><a class="food-map" href="https://www.google.com/maps/search/?api=1&query=博多らーめん+Shin-Shin+福岡" target="_blank">📍 Google Maps</a></div></div>
+      <div class="check"><span class="box"></span><div>博多駅 いっぷく通り 拉麵橫丁<br><a class="food-map" href="https://www.google.com/maps/search/?api=1&query=博多駅+いっぷく通り" target="_blank">📍 Google Maps</a></div></div>
       <div class="food-cat">鍋物</div>
-      <div class="check"><span class="box"></span><div><b>水炊き（雞白湯鍋）· 新三浦 天神店（9/3 18:00 現場候位）</b></div></div>
+      <div class="check"><span class="box"></span><div><b>水炊き（雞白湯鍋）· 新三浦 天神店（9/3 18:00 現場候位）</b><br><a class="food-map" href="https://www.google.com/maps/search/?api=1&query=博多水炊き+新三浦+天神店" target="_blank">📍 Google Maps</a></div></div>
       <div class="food-cat">燒肉</div>
-      <div class="check"><span class="box"></span><div><b>肉の山翔（9/2 18:00 已預約 · 預約號碼 5L3CZYXFQL）</b></div></div>
+      <div class="check"><span class="box"></span><div><b>肉の山翔（9/2 18:00 已預約 · 預約號碼 5L3CZYXFQL）</b><br><a class="food-map" href="https://www.google.com/maps/search/?api=1&query=肉の山翔+福岡" target="_blank">📍 Google Maps</a></div></div>
+      <div class="food-cat">燒鳥</div>
+      <div class="check"><span class="box"></span><div><b>焼とりの八兵衛 天神店（9/1 18:00 已預約）</b><br><a class="food-map" href="https://www.google.com/maps/search/?api=1&query=焼とりの八兵衛+天神店" target="_blank">📍 Google Maps</a></div></div>
       <div class="food-cat">屋台 · 街邊小食</div>
-      <div class="check"><span class="box"></span><div>中洲屋台街</div></div>
-      <div class="check"><span class="box"></span><div>柳橋連合市場 現做小吃</div></div>
+      <div class="check"><span class="box"></span><div>中洲屋台街<br><a class="food-map" href="https://www.google.com/maps/search/?api=1&query=中洲屋台街" target="_blank">📍 Google Maps</a></div></div>
+      <div class="check"><span class="box"></span><div>柳橋連合市場 現做小吃<br><a class="food-map" href="https://www.google.com/maps/search/?api=1&query=柳橋連合市場" target="_blank">📍 Google Maps</a></div></div>
       <div class="food-cat">在地烏龍麵 · 甜點</div>
-      <div class="check"><span class="box"></span><div>資さんうどん · 牛蒡天婦羅烏龍麵</div></div>
-      <div class="check"><span class="box"></span><div>梅ヶ枝餅（太宰府参道）</div></div>
+      <div class="check"><span class="box"></span><div>資さんうどん · 牛蒡天婦羅烏龍麵<br><a class="food-map" href="https://www.google.com/maps/search/?api=1&query=資さんうどん+天神" target="_blank">📍 Google Maps</a></div></div>
+      <div class="check"><span class="box"></span><div>梅ヶ枝餅（太宰府参道）<br><a class="food-map" href="https://www.google.com/maps/search/?api=1&query=梅ヶ枝餅+太宰府参道" target="_blank">📍 Google Maps</a></div></div>
       <div class="food-cat">麵包 · 排隊美食</div>
-      <div class="check"><span class="box"></span><div>THE FULLFULL HAKATA · 明太フランス（同事推薦，祇園元祖店）</div></div>
+      <div class="check"><span class="box"></span><div>THE FULLFULL HAKATA · 明太フランス（同事推薦，祇園元祖店）<br><a class="food-map" href="https://www.google.com/maps/search/?api=1&query=THE+FULLFULL+HAKATA+福岡市博多区祇園町9-3" target="_blank">📍 Google Maps</a></div></div>
       <div class="food-cat">伴手禮</div>
-      <div class="check"><span class="box"></span><div>ふくや 明太子 本店</div></div>
-      <div class="check"><span class="box"></span><div>博多駅 デイトス／マイング</div></div>
+      <div class="check"><span class="box"></span><div>ふくや 明太子 本店<br><a class="food-map" href="https://www.google.com/maps/search/?api=1&query=ふくや+明太子+本店" target="_blank">📍 Google Maps</a></div></div>
+      <div class="check"><span class="box"></span><div>博多駅 デイトス／マイング<br><a class="food-map" href="https://www.google.com/maps/search/?api=1&query=博多駅+デイトス+マイング" target="_blank">📍 Google Maps</a></div></div>
     </div>
-    <div class="callout">肉の山翔已完成訂位；新三浦天神店因預約只能選套餐，決定 9/3 18:00 直接到店候位。THE FULLFULL HAKATA 現烤限量、常見排隊，建議一開店即前往或先電話／LINE 預約。</div>
+    <div class="callout">焼とりの八兵衛天神店與肉の山翔皆已完成訂位；新三浦天神店因預約只能選套餐，決定 9/3 18:00 直接到店候位。THE FULLFULL HAKATA 現烤限量、常見排隊，建議一開店即前往或先電話／LINE 預約。</div>
   </article>
 
   <article class="card readable" tabindex="0" aria-pressed="false">
