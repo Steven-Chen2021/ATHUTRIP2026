@@ -182,6 +182,18 @@ main { padding: 31px 12px 44px; }
 .trip-card.fukuoka .trip-status { color: #ffd48a; border-color: rgba(255,212,138,.56); }
 .trip-card.fukuoka .trip-date { color: #b7410e; }
 
+.trip-card.afm::after { background: linear-gradient(90deg, #182b38 0 56%, #a33c32 56% 76%, #b88a48 76%); }
+.trip-card.afm .trip-visual {
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(145deg, #101f29, #203b4a 62%, #5b3d35);
+  background-size: 22px 22px, 22px 22px, 100% 100%;
+}
+.trip-card.afm .trip-visual::after { content: "SHANGHAI   —   SUZHOU"; }
+.trip-card.afm .trip-status { color: #f2d39a; border-color: rgba(242,211,154,.55); }
+.trip-card.afm .trip-date { color: #a33c32; }
+
 .trip-card:active { transform: translateY(1px); }
 .trip-card:focus-visible { outline: 3px solid rgba(198,147,59,.65); outline-offset: 3px; }
 
@@ -258,9 +270,9 @@ footer { padding: 0 16px 30px; color: #847d6d; font: 10px/1.5 Georgia, serif; te
 </header>
 
 <section class="summary" aria-label="旅行摘要">
-  <div class="stat"><strong>4</strong><span>Journeys</span></div>
-  <div class="stat"><strong>5</strong><span>Places</span></div>
-  <div class="stat"><strong>27</strong><span>Travelers</span></div>
+  <div class="stat"><strong>5</strong><span>Journeys</span></div>
+  <div class="stat"><strong>7</strong><span>Places</span></div>
+  <div class="stat"><strong>28</strong><span>Travelers</span></div>
 </section>
 
 <main>
@@ -278,6 +290,21 @@ footer { padding: 0 16px 30px; color: #847d6d; font: 10px/1.5 Georgia, serif; te
   <div class="trip-grid" id="archive-trips" role="tabpanel" hidden></div>
 
   <div id="trip-source" hidden>
+    <a class="trip-card afm" href="trips/2026-09-20-suzhou-afm/" data-start="2026-09-20" data-end="2026-09-24" aria-label="開啟 2026 蘇州 AFM 商務行程">
+      <div class="trip-visual">
+        <span class="trip-status">Upcoming Business Trip</span>
+        <h3>Suzhou AFM<span>蘇州年度會議 · 2026</span></h3>
+        <div class="route"><span>Taipei</span><i></i><span>Shanghai</span><i></i><span>Suzhou</span></div>
+      </div>
+      <div class="trip-info">
+        <div>
+          <div class="trip-date">2026.09.20 — 09.24</div>
+          <p class="trip-meta">中國 · 蘇州、上海<br>1 位旅人 · AFM Meeting</p>
+        </div>
+        <span class="open-label">開啟計劃</span>
+      </div>
+    </a>
+
     <a class="trip-card fukuoka" href="trips/2026-09-01-fukuoka-food-trip/" data-start="2026-09-01" data-end="2026-09-04" aria-label="開啟 2026 福岡美食旅行計劃">
       <div class="trip-visual">
         <span class="trip-status">Upcoming Food Trip</span>
